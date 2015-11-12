@@ -41,7 +41,7 @@ var copyRecursiveSync = function(src, dest) {
 var execCommand = function(command, callback) {
 
     console.log("Executing "+command+" ...");
-    var p = exec(command, function(error, stdout, stderr) {
+    var p = exec(command, {maxBuffer: 1024 * 500}, function(error, stdout, stderr) {
 
         if(!!stdout ) {
             console.log("Exec: "+stdout);
